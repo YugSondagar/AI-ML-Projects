@@ -1,0 +1,68 @@
+[2026-01-22 21:08:42,714] 97 werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.78.6.252:8080
+[2026-01-22 21:08:42,714] 97 werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[2026-01-22 21:22:55,548] 97 werkzeug - INFO - 127.0.0.1 - - [22/Jan/2026 21:22:55] "GET / HTTP/1.1" 200 -
+[2026-01-22 21:22:55,625] 97 werkzeug - INFO - 127.0.0.1 - - [22/Jan/2026 21:22:55] "GET /static/styles.css HTTP/1.1" 200 -
+[2026-01-22 21:22:56,987] 97 werkzeug - INFO - 127.0.0.1 - - [22/Jan/2026 21:22:56] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2026-01-22 21:23:17,541] 97 werkzeug - INFO - 127.0.0.1 - - [22/Jan/2026 21:23:17] "GET / HTTP/1.1" 200 -
+[2026-01-22 21:23:17,568] 97 werkzeug - INFO - 127.0.0.1 - - [22/Jan/2026 21:23:17] "[33mGET /static/styles.css HTTP/1.1[0m" 404 -
+[2026-01-22 21:23:18,680] 97 werkzeug - INFO - 127.0.0.1 - - [22/Jan/2026 21:23:18] "GET / HTTP/1.1" 200 -
+[2026-01-22 21:23:18,713] 97 werkzeug - INFO - 127.0.0.1 - - [22/Jan/2026 21:23:18] "[33mGET /static/styles.css HTTP/1.1[0m" 404 -
+[2026-01-22 21:23:43,178] 97 werkzeug - INFO - 10.78.6.252 - - [22/Jan/2026 21:23:43] "GET / HTTP/1.1" 200 -
+[2026-01-22 21:23:43,202] 97 werkzeug - INFO - 10.78.6.252 - - [22/Jan/2026 21:23:43] "[33mGET /static/styles.css HTTP/1.1[0m" 404 -
+[2026-01-22 21:23:44,617] 97 werkzeug - INFO - 10.78.6.252 - - [22/Jan/2026 21:23:44] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2026-01-22 21:24:09,337] 875 app - ERROR - Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\Yug Sondagar\AI-ML Projects\Student-Performance-Prediction\src\utils.py", line 41, in load_object
+    with open(file_path,"rb") as file_obj:
+         ^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'Artifacts\\Model.pkl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Yug Sondagar\AI-ML Projects\Student-Performance-Prediction\src\pipeline\Prediction_pipeline.py", line 16, in predict
+    model = load_object(file_path=model_path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yug Sondagar\AI-ML Projects\Student-Performance-Prediction\src\utils.py", line 44, in load_object
+    raise CustomException(e,sys)
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yug Sondagar\AI-ML Projects\Student-Performance-Prediction\src\exception.py", line 13, in __init__
+    self.error_message = error_message_detail(error_message,error_detail=error_detail)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yug Sondagar\AI-ML Projects\Student-Performance-Prediction\src\exception.py", line 7, in error_message_detail
+    error_message = "Error occured in python script name [{0}] line number [{1}] error message [{3}]".format(file_name,exc_tb.tb_lineno,str(error))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: Replacement index 3 out of range for positional args tuple
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Yug Sondagar\AI-ML Projects\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yug Sondagar\AI-ML Projects\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yug Sondagar\AI-ML Projects\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yug Sondagar\AI-ML Projects\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yug Sondagar\AI-ML Projects\Student-Performance-Prediction\app.py", line 25, in predict_datapoint
+    results = predict_pipeline.predict(pred_df)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yug Sondagar\AI-ML Projects\Student-Performance-Prediction\src\pipeline\Prediction_pipeline.py", line 23, in predict
+    raise CustomException(e,sys)
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yug Sondagar\AI-ML Projects\Student-Performance-Prediction\src\exception.py", line 13, in __init__
+    self.error_message = error_message_detail(error_message,error_detail=error_detail)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yug Sondagar\AI-ML Projects\Student-Performance-Prediction\src\exception.py", line 7, in error_message_detail
+    error_message = "Error occured in python script name [{0}] line number [{1}] error message [{3}]".format(file_name,exc_tb.tb_lineno,str(error))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: Replacement index 3 out of range for positional args tuple
+[2026-01-22 21:24:09,346] 97 werkzeug - INFO - 10.78.6.252 - - [22/Jan/2026 21:24:09] "[35m[1mPOST / HTTP/1.1[0m" 500 -

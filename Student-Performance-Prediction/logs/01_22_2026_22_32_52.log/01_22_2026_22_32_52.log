@@ -1,0 +1,7 @@
+[2026-01-22 22:32:54,557] 22 root - INFO - Data Ingestion Config
+[2026-01-22 22:32:54,631] 27 root - INFO - Read the dataset as dataframe
+[2026-01-22 22:32:54,635] 31 root - INFO - Created the raw data file
+[2026-01-22 22:32:54,635] 33 root - INFO - Splitting the data into train and test
+[2026-01-22 22:32:54,646] 35 root - INFO - Data Splitting is done
+[2026-01-22 22:32:54,650] 39 root - INFO - Created the train and test data files
+[2026-01-22 22:32:54,650] 40 root - INFO - Data ingestion Completed

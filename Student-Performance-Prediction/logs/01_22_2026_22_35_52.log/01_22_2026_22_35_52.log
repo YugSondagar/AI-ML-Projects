@@ -1,0 +1,68 @@
+[2026-01-22 22:35:55,693] 22 root - INFO - Data Ingestion Config
+[2026-01-22 22:35:55,697] 33 root - INFO - Read the dataset as dataframe
+[2026-01-22 22:35:55,701] 37 root - INFO - Created the raw data file
+[2026-01-22 22:35:55,701] 39 root - INFO - Splitting the data into train and test
+[2026-01-22 22:35:55,702] 43 root - INFO - Data Splitting is done
+[2026-01-22 22:35:55,705] 47 root - INFO - Created the train and test data files
+[2026-01-22 22:35:55,705] 48 root - INFO - Data ingestion Completed
+[2026-01-22 22:35:55,797] 56 root - INFO - Read train and test data completed
+[2026-01-22 22:35:55,805] 57 root - INFO - Obtaining preprocessing object
+[2026-01-22 22:35:55,805] 40 root - INFO - Categorical Columns: ['gender', 'race_ethnicity', 'parental_level_of_education', 'lunch', 'test_preparation_course']
+[2026-01-22 22:35:55,805] 41 root - INFO - Numerical Columns: ['writing_score', 'reading_score']
+[2026-01-22 22:35:55,821] 64 root - INFO - Train Data Before Transformation:
+    gender race_ethnicity  ... reading_score writing_score
+0  female        group D  ...            70            75
+1  female        group C  ...            83            83
+2  female        group D  ...            89            86
+3    male        group C  ...            67            66
+4    male        group E  ...            64            57
+
+[5 rows x 8 columns]
+[2026-01-22 22:35:55,825] 65 root - INFO - Test Data Before Transformation:
+    gender race_ethnicity  ... reading_score writing_score
+0  female        group C  ...            86            84
+1  female        group B  ...            66            73
+2    male        group D  ...            73            72
+3    male        group C  ...            77            73
+4    male        group E  ...            83            78
+
+[5 rows x 8 columns]
+[2026-01-22 22:35:55,830] 73 root - INFO - Input Train Data After Transformation: 
+    gender race_ethnicity  ... reading_score writing_score
+0  female        group D  ...            70            75
+1  female        group C  ...            83            83
+2  female        group D  ...            89            86
+3    male        group C  ...            67            66
+4    male        group E  ...            64            57
+
+[5 rows x 7 columns]
+[2026-01-22 22:35:55,835] 74 root - INFO - Input Test Data After Transformation:
+    gender race_ethnicity  ... reading_score writing_score
+0  female        group C  ...            86            84
+1  female        group B  ...            66            73
+2    male        group D  ...            73            72
+3    male        group C  ...            77            73
+4    male        group E  ...            83            78
+
+[5 rows x 7 columns]
+[2026-01-22 22:35:55,838] 75 root - INFO - Target Train Data After Transformation: 
+0    62
+1    66
+2    79
+3    61
+4    73
+Name: math_score, dtype: int64
+[2026-01-22 22:35:55,838] 76 root - INFO - Target Test Data After Transformation:
+ 0    91
+1    53
+2    80
+3    74
+4    84
+Name: math_score, dtype: int64
+[2026-01-22 22:35:55,838] 78 root - INFO - Applying preprocessing object on training dataframe and testing dataframe.
+[2026-01-22 22:35:55,854] 85 root - INFO - Input Train Data After Transformation: 
+ (800, 19)
+[2026-01-22 22:35:55,854] 86 root - INFO - Input Test Data After Transformation:
+ (200, 19)
+[2026-01-22 22:35:55,854] 93 root - INFO - Saved preprocessing object.
+[2026-01-22 22:35:55,855] 23 root - INFO - Split training and test input data
