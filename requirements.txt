@@ -10,4 +10,5 @@ xgboost
 seaborn 
 ipykernel
 evidently
+dill
 # -e .
