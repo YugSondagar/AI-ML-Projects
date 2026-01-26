@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MarketInsight AI</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f7f6; display: flex; flex-direction: column; align-items: center; }
+        #chat-container { width: 80%; max-width: 700px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: 50px; }
+        #messages { height: 400px; overflow-y: auto; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 10px; }
+        .msg { margin: 10px 0; padding: 10px; border-radius: 5px; }
+        .user { background: #e3f2fd; text-align: right; }
+        .bot { background: #f1f8e9; text-align: left; }
+        input { width: 80%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        button { padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <h3>MarketInsight Financial Agent</h3>
+        <div id="messages"></div>
+        <input type="text" id="userInput" placeholder="Ask about AAPL news or stock price...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        const threadId = "session_" + Math.random().toString(36).substring(2);
+
+        async function sendMessage() {
+            const input = document.getElementById("userInput");
+            const msgDiv = document.getElementById("messages");
+            const text = input.value.trim();
+
+            if (!text) return;
+
+            msgDiv.innerHTML += `<div class="msg user"><b>You:</b> ${text}</div>`;
+            input.value = "";
+
+            try {
+                const response = await fetch("/chat", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({ message: text, threadId })
+                });
+
+                const data = await response.json();
+                msgDiv.innerHTML += `<div class="msg bot"><b>Agent:</b> ${data.response || data.error}</div>`;
+                msgDiv.scrollTop = msgDiv.scrollHeight;
+
+            } catch (err) {
+                msgDiv.innerHTML += `<div class="msg bot">Error connecting to server</div>`;
+            }
+        }
+    </script>
+
+</body>
+</html>
