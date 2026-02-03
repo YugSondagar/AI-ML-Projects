@@ -11,4 +11,19 @@ seaborn
 ipykernel
 evidently
 dill
+fastapi
+pydantic
+uvicorn
+python-dotenv
+langchain-groq
+langgraph
+yfinance
+langchain
+langchain-core
+langfuse
+dagshub
+dvc
+mlflow
+dvc-s3
+pytest
 # -e .
